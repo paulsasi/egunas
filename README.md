@@ -1,1 +1,5 @@
-# egunas
+# Egunas
+
+- Docker
+- Cache
+- Authentication

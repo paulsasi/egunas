@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  server:
+    image: micro1-flaskserver
+    ports:
+      - 8080:5000
+
+    volumes:
+      - sqlite:/app/db
+      - cord-data:/app/data
+
+  db:
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - sqlite:/root/db/
+  compute_center:
+    image: micro3-compute-center
+    volumes:
+      - cord-data:/app/data
+
+volumes:
+  sqlite:
+  cord-data:
+

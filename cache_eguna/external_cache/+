@@ -1,0 +1,63 @@
+# External Cache: Redis
+
+Stores the data in a separate fleet. **Redis** is a popular open source in-memory data structure store used as cache. Redis is a key-value store. The key can contain strings, hashes, lists, sets and sorted sets. Redis is written in C. Redis has three main peculiatiries:
+
+- It holds its database entirely in memory, usign the disk only for persitence
+- Rich set of data types compared to many key-value data stores
+- It can replicate data to any number of slaves
+
+## Redis Client
+
+Redis commands are used to perfomr some operations on Redis server. To run those commands, you need a Redis client. To start a Redis
+client, open the terminal and type `redis-cli`. This will connect to oyu local server. To run commands on Redis remote server, use `redis-cli -h host -p port -a password`. 
+
+To start a Redis server, run `redis-server`.
+
+## Redis data structures
+
+Redis supports strings (sequence of bytes), hasshes (collection of key value pairs), lists (list of strings), sets (unordered collection of strings) and sorted sets (sets with a score).
+
+
+## Redis key commands
+
+Redis keys commands are used for managign keys. The schema they use is `COMMAND KEY_NAME`. Some basic key commands are the following:
+
+- `DEL key`: Deletes the key if exists
+- `DUMP key`: Return a serialized version of the value stored at the specific key
+- `EXISTS key`: Checks whether the key exists or not
+- `EXPIRE key seconds`: Sets the expirty of the key after the specified time
+- `EXPIREAT key timestamp`: Sets the expiry of the key after the specified time
+- `KEYS pattern`: Finds all keys mathcing the pattern
+- `MOVE key db`: Moves a key to another database
+- `PERSIST key`: Removes the expiration from the key
+- `PTTL key`: Gets the remainign time in keys expiry in milliseconds
+- `RANDOMKEY`: Returns a random key from Redis
+- `RENAME key newkey`: Changes the key name
+- `RENAMENX key newkey`: Renames the key, if a new key doesn't exist
+- `TYPE key`: Returns the data type of the value stored in the key
+
+## Redis string commands
+
+Redis string commands are used for managing string values in Redis. Following lists some basic string commands:
+
+- `SET key value`: Sets the value at the specific key
+- `GET key`: Gets the value of a key
+- `GETRANGE key start end`: Gets a substring of the string stored at the key
+- `GETSET key value`: Sets the string value of a key and return its old value
+- `GETBIT key offset`: Returns the bit value at the offset in the string value stored at the key
+- `MGET key1 key2 ...`: Gets values of multiple keys
+- `SETBIT key offset value`: Sets or clears the bit at the offset in the string value
+- `SETEX key seconds value`: Sets the value with the expiry of a key
+- `STRLEN key`: Gets the length of the value
+- `INCR key`: Increment the interger value of a key by one
+- `APPEND key value`: Appends a valeu to a key
+
+
+## Redis Hashes commands
+
+Redis Hashes are mapts between the string fields and the string values. Following shows some basic commands related to hash:
+
+- `HDEL key field`: Deleteres one or more hash fields
+- `HEXISTS key field`: Determines whether a has field exists or not
+- `HGET key field`: Gets the value of a hash field at the key
+- `HGETALL key`: Gets all the fields and values stored in a hash key 
